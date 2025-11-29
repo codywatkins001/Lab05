@@ -1,7 +1,7 @@
 import json
 from models import flashcard
 
-class FlashcardLoader:
+class flashcardLoader:
 
     @staticmethod
     def load(file_path):

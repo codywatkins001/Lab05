@@ -1,9 +1,9 @@
-from services import flashcardloader
-from services import quizengine
+from services.flashcardloader import flashcardLoader
+from services.quizengine import quizengine
 
 def main():
     file_path = "data/flashcards.json"
-    flashcards = flashcardloader.load(file_path)
+    flashcards = load(file_path)
 
     if not flashcards:
         print("No flashcards loaded. Exiting...")
@@ -11,7 +11,6 @@ def main():
 
     quiz = quizengine(flashcards)
     quiz.run_quiz()
-
 
 if __name__ == "__main__":
     main()
