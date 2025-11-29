@@ -3,13 +3,13 @@ from services import quizengine
 
 def main():
     file_path = "data/flashcards.json"
-    flashcards = FlashcardLoader.load(file_path)
+    flashcards = flashcardloader.load(file_path)
 
     if not flashcards:
         print("No flashcards loaded. Exiting...")
         return
 
-    quiz = QuizEngine(flashcards)
+    quiz = quizengine(flashcards)
     quiz.run_quiz()
 
 

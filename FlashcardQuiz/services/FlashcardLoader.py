@@ -4,12 +4,12 @@ from models import flashcard
 class FlashcardLoader:
 
     @staticmethod
-    def load(file_path: str):
+    def load(file_path):
         try:
             with open(file_path, "r") as file:
                 data = json.load(file)
 
-            return [Flashcard(item["question"], item["answer"]) for item in data]
+            return [flashcard(item["question"], item["answer"]) for item in data]
 
         except FileNotFoundError:
             print("Flashcards file not found.")
