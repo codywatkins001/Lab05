@@ -1,5 +1,5 @@
-from services import FlashcardLoader
-from services import QuizEngine
+from services import flashcardloader
+from services import quizengine
 
 def main():
     file_path = "data/flashcards.json"

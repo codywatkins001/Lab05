@@ -1,5 +1,5 @@
 import json
-from models import Flashcard
+from models import flashcard
 
 class FlashcardLoader:
 
