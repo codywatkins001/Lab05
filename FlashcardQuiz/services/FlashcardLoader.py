@@ -1,17 +1,18 @@
-from services.flashcardloader import flashcardLoader
-from services.quizengine import quizengine
+import json
+from models.flashcard import flashcard
 
-def main():
-    file_path = "data/flashcards.json"
+class flashcardLoader:
+    @staticmethod
+    def load(file_path):
+        try:
+            with open(file_path, "r") as file:
+                data = json.load(file)
 
-    flashcards = flashcardLoader.load(file_path)
+            return [flashcard(item["question"], item["answer"]) for item in data]
 
-    if not flashcards:
-        print("No flashcards loaded. Exiting...")
-        return
-
-    quiz = quizengine(flashcards)
-    quiz.run_quiz()
-
-if __name__ == "__main__":
-    main()
+        except FileNotFoundError:
+            print("Flashcards file not found.")
+            return []
+        except json.JSONDecodeError:
+            print("Invalid JSON format.")
+            return []

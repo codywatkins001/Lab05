@@ -3,7 +3,7 @@ from services.quizengine import quizengine
 
 def main():
     file_path = "data/flashcards.json"
-    flashcards = load(file_path)
+    flashcards = flashcardLoader.load(file_path)
 
     if not flashcards:
         print("No flashcards loaded. Exiting...")
